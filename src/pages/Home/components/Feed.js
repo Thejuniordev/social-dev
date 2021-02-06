@@ -10,13 +10,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const posts = [
-
+    { id: 1, description: 'teste 1'},
+    { id: 2, description: 'teste 2'},
+    { id: 3, description: 'teste 3'}
 ]
 
 function Feed() {
+    const classes = useStyles();
+
     return (
-        <div>
-            <PostCard></PostCard>
+        <div className={classes.root}>
+            {
+                posts.map(post => (
+                    <PostCard key={post.id} post={post} />
+                ))
+            }
         </div>
     )
 }
